@@ -1,2 +1,2 @@
-# CAMASimulator
-Cleanroom Attire and Mask Alignment Simulator
+# GAMASimulator
+Gowning and Mask Alignment Simulator

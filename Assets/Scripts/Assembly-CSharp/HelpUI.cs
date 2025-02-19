@@ -9,7 +9,7 @@ public class HelpUI : MonoBehaviour
 
     private void Start()
     {
-       
+        Debug.Log(Application.isMobilePlatform);
         helpPanel.SetActive(false);
     }
 

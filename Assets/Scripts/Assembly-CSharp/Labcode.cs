@@ -18,47 +18,51 @@ public class Labcode : MonoBehaviour
     }
     private void Update()
     {
-        GameObject nextLevel = GameObject.Find("NextLevel");
-        NextScene myScript = nextLevel.GetComponent<NextScene>();
-        if (Input.GetKeyDown(interactionKey))
+
+        if (Input.GetKeyDown(interactionKey) && !Application.isMobilePlatform)
         {
-            
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, transform.forward, out hit))
+            Interact();
+        }
+    }
+
+    public void Interact() {
+     RaycastHit hit;
+             GameObject nextLevel = GameObject.Find("NextLevel");
+        NextScene myScript = nextLevel.GetComponent<NextScene>();
+    if (Physics.Raycast(transform.position, transform.forward, out hit))
+    {
+        
+        if (ArrayContainsObject(items, hit.collider.gameObject))
+        {
+            if (hit.collider.gameObject == items[currentItemIndex])
+            {
+                InteractWithItem(currentItemIndex);
+
+                
+                if (currentItemIndex >= items.Length - 1)
+                {
+                    
+                    if (successTextFadeScript != null)
+                    {
+                        StartCoroutine(successTextFadeScript.FadeInOut());
+                        myScript.enabled = true;
+                    }
+                }
+                else
+                {
+                    currentItemIndex++;
+                }
+            }
+            else
             {
                 
-                if (ArrayContainsObject(items, hit.collider.gameObject))
+                if (wrongOrderTextFadeScript != null)
                 {
-                    if (hit.collider.gameObject == items[currentItemIndex])
-                    {
-                        InteractWithItem(currentItemIndex);
-
-                        
-                        if (currentItemIndex >= items.Length - 1)
-                        {
-                            
-                            if (successTextFadeScript != null)
-                            {
-                                StartCoroutine(successTextFadeScript.FadeInOut());
-                                myScript.enabled = true;
-                            }
-                        }
-                        else
-                        {
-                            currentItemIndex++;
-                        }
-                    }
-                    else
-                    {
-                       
-                        if (wrongOrderTextFadeScript != null)
-                        {
-                            StartCoroutine(wrongOrderTextFadeScript.FadeInOut());
-                        }
-                    }
+                    StartCoroutine(wrongOrderTextFadeScript.FadeInOut());
                 }
             }
         }
+    }
     }
 
     private void InteractWithItem(int itemIndex)

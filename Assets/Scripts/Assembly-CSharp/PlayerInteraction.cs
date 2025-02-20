@@ -16,11 +16,14 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        
-        if (Input.GetKeyDown(interactionKey))
+        if (Input.GetKeyDown(interactionKey) && !Application.isMobilePlatform)
         {
-            
-            RaycastHit hit;
+            Interact();   
+        }
+    }
+
+    public void Interact() {
+         RaycastHit hit;
             if (Physics.Raycast(transform.position, transform.forward, out hit))
             {
                 
@@ -41,7 +44,6 @@ public class PlayerInteraction : MonoBehaviour
                         return;
                     }
                 }
-                
                 else if (hit.collider.gameObject == shoes)
                 {
                     if (isCarpetInteracted && !isShoesInteracted)
@@ -61,7 +63,6 @@ public class PlayerInteraction : MonoBehaviour
                 }
             }
         }
-    }
 
     private void InteractWithCarpet()
     {

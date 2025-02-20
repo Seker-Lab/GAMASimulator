@@ -9,8 +9,10 @@ public class PauseMenuController : MonoBehaviour
     public TMP_Dropdown difficultyOption;
     public Text helpText;
     public TMP_Text helpText2;
+    private bool mobileInput;
     void Start()
     {
+        mobileInput = Application.isMobilePlatform;
         pauseMenu.SetActive(false);
         difficultyOption.onValueChanged.AddListener(DifficultyChanged);
     }
@@ -38,7 +40,8 @@ public class PauseMenuController : MonoBehaviour
         {
             Time.timeScale = 1f;
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            if (!mobileInput)
+                Cursor.lockState = CursorLockMode.Locked;
         }
     }
 

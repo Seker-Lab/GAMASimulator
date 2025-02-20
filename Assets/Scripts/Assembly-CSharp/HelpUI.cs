@@ -15,7 +15,7 @@ public class HelpUI : MonoBehaviour
 
     private void Update()
     {
-        if (SystemInfo.deviceType == DeviceType.Desktop)
+        if (!Application.isMobilePlatform)
             holdingHelp = Input.GetKey(KeyCode.H);
         if (holdingHelp)
         {

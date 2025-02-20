@@ -24,15 +24,16 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
 
-        Cursor.lockState = CursorLockMode.Locked;
 
         cameraTransform.localRotation = new Quaternion(0,0,0,0);
 
-        if (SystemInfo.deviceType == DeviceType.Desktop) {
+        if (!Application.isMobilePlatform) {
+            Cursor.lockState = CursorLockMode.Locked;
             mobileInput = false;
             LeftJoystick.parent.parent.gameObject.SetActive(false);
         }
         else {
+            Cursor.lockState = CursorLockMode.None;
             mobileInput = true;
         }
     }
@@ -40,28 +41,36 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+        
+        float x;
+        float z;
 
         if (mobileInput) {
+            Cursor.lockState = CursorLockMode.None;
             x = LeftJoystick.anchoredPosition.x / LeftJoystick.rect.width;
             x *= mobileMoveSensitivity;
             z = LeftJoystick.anchoredPosition.y / LeftJoystick.rect.height;
             z *= mobileMoveSensitivity;
+        } else {
+            x = Input.GetAxis("Horizontal");
+            z = Input.GetAxis("Vertical");
         }
 
         Vector3 move = transform.right * x + transform.forward * z;
         characterController.Move(move * speed * Time.deltaTime);
 
         // �������ӽ�
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX;
+        float mouseY;
 
         if (mobileInput) {
             mouseX = RightJoystick.anchoredPosition.x / RightJoystick.rect.width;
             mouseX *= mobileCameraSensitivity;
             mouseY = RightJoystick.anchoredPosition.y / RightJoystick.rect.height;
             mouseY *= mobileCameraSensitivity;
+        } else {
+            mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
         }
 
         xRotation -= mouseY;

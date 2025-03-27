@@ -20,8 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 68}
   - component: {fileID: 45}
-  - component: {fileID: 117}
   - component: {fileID: 1724993460}
+  - component: {fileID: 1724993461}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 64}
   - component: {fileID: 126}
   - component: {fileID: 130}
+  - component: {fileID: 131}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1785,18 +1786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f96b1d166d19b209697e35b35d65c76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eae9f5d38804db9ee8bc337a80d4c5ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2180,6 +2169,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e16e861c350b247b909ffaaa365b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &25112989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3804,7 +3805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<u><b>Contact</b></u>\nProf. Erkin \u015Eeker\nPrincipal Investigator\n<color=\"blue\"><link=\"https://www.ece.ucdavis.edu/~eseker/\">Homepage</link>\n<link=\"eseker@ucdavis.edu\">eseker@ucdavis.edu</link></color>\n\n"
+  m_text: "<u><b>Contact</b></u>\nProf. Erkin \u015Eeker\nPrincipal Investigator\n<color=\"blue\"><link=\"https://www.ece.ucdavis.edu/~eseker/\">Homepage</link>\n<link=\"mailto:eseker@ucdavis.edu\">eseker@ucdavis.edu</link></color>\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3873,6 +3874,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1724993461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e16e861c350b247b909ffaaa365b48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1878404021
 MonoBehaviour:
   m_ObjectHideFlags: 0

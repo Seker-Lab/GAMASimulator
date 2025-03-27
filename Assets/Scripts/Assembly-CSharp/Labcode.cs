@@ -8,9 +8,7 @@ public class Labcode : MonoBehaviour
     public FadeInOutUI wrongOrderTextFadeScript;
     public GameObject[] items;
     public Text[] itemTexts;
-
-
-
+    public GameObject mobileSpace;
     private int currentItemIndex = 0;
     private void Start()
     {
@@ -46,6 +44,7 @@ public class Labcode : MonoBehaviour
                     {
                         StartCoroutine(successTextFadeScript.FadeInOut());
                         myScript.enabled = true;
+                        mobileSpace.SetActive(true);
                     }
                 }
                 else

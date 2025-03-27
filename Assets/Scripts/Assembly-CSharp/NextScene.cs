@@ -21,7 +21,7 @@ public class NextScene : MonoBehaviour
         }
     }
 
-    void ToggleNextScene()
+    public void ToggleNextScene()
     {
         
         scene.SetActive(!scene.activeSelf);

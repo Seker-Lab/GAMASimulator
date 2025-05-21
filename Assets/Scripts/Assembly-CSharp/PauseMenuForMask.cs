@@ -53,4 +53,16 @@ public class PauseMenuForMask : MonoBehaviour
         Cursor.lockState= CursorLockMode.None;
         SceneManager.LoadScene("Mask Menu");
     }
+
+    public void FullScreenToggle()
+    {
+        if (Screen.fullScreen)
+        {
+            Screen.fullScreen = false;
+        }
+        else
+        {
+            Screen.fullScreen = true;
+        }
+    }
 }

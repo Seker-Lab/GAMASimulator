@@ -16,7 +16,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(interactionKey) && !Application.isMobilePlatform)
+        if (Input.GetKeyDown(interactionKey) && !DeviceType.IsMobileBrowser())
         {
             Interact();   
         }

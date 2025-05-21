@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 //using SystemInfo;
 
 public class PlayerController : MonoBehaviour
@@ -14,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     public bool mobileInput = true;
     public float mobileMoveSensitivity = 0.5f;
-    public float mobileCameraSensitivity = 0.25f;
     public RectTransform LeftJoystick; // should be handle
     public RectTransform RightJoystick; // should be handle
 
@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         cameraTransform.localRotation = new Quaternion(0,0,0,0);
 
-        if (!Application.isMobilePlatform) {
+        if (!DeviceType.IsMobileBrowser()) {
             Cursor.lockState = CursorLockMode.Locked;
             mobileInput = false;
             LeftJoystick.parent.parent.gameObject.SetActive(false);
@@ -65,9 +65,9 @@ public class PlayerController : MonoBehaviour
 
         if (mobileInput) {
             mouseX = RightJoystick.anchoredPosition.x / RightJoystick.rect.width;
-            mouseX *= mobileCameraSensitivity;
+            mouseX *= mouseSensitivity / 400;
             mouseY = RightJoystick.anchoredPosition.y / RightJoystick.rect.height;
-            mouseY *= mobileCameraSensitivity;
+            mouseY *= mouseSensitivity / 400;
         } else {
             mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
@@ -78,5 +78,11 @@ public class PlayerController : MonoBehaviour
 
         cameraTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * mouseX);
+    }
+
+    public void sensitivityChanged()
+    {
+        float value = GameObject.Find("Sensitivity").GetComponent<Slider>().value;
+        mouseSensitivity = value;
     }
 }

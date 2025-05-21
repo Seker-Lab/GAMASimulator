@@ -12,7 +12,7 @@ public class PauseMenuController : MonoBehaviour
     private bool mobileInput;
     void Start()
     {
-        mobileInput = Application.isMobilePlatform;
+        mobileInput = DeviceType.IsMobileBrowser();
         pauseMenu.SetActive(false);
         difficultyOption.onValueChanged.AddListener(DifficultyChanged);
     }
@@ -64,6 +64,18 @@ public class PauseMenuController : MonoBehaviour
         {
             helpText.gameObject.SetActive(false);
             helpText2.gameObject.SetActive(false);
+        }
+    }
+
+    public void ToggleFullScreen()
+    {
+        if (Screen.fullScreen)
+        {
+            Screen.fullScreen = false;
+        }
+        else
+        {
+            Screen.fullScreen = true;
         }
     }
 

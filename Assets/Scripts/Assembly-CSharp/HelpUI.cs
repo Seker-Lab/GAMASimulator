@@ -9,13 +9,13 @@ public class HelpUI : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log(Application.isMobilePlatform);
+        Debug.Log(DeviceType.IsMobileBrowser());
         helpPanel.SetActive(false);
     }
 
     private void Update()
     {
-        if (!Application.isMobilePlatform)
+        if (!DeviceType.IsMobileBrowser())
             holdingHelp = Input.GetKey(KeyCode.H);
         if (holdingHelp)
         {

@@ -15,7 +15,7 @@ public class NextScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             ToggleNextScene();
         }
@@ -23,8 +23,11 @@ public class NextScene : MonoBehaviour
 
     public void ToggleNextScene()
     {
-        
-        scene.SetActive(!scene.activeSelf);
+        if (!this.enabled)
+            return;
+        if (!scene.activeSelf) {
+            scene.SetActive(true);
+        }
 
         if (scene.activeSelf)
         {

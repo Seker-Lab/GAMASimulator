@@ -44,7 +44,8 @@ public class Labcode : MonoBehaviour
                     {
                         StartCoroutine(successTextFadeScript.FadeInOut());
                         myScript.enabled = true;
-                        mobileSpace.SetActive(true);
+                        //GameObject.Find("F").GetComponent<Button>().OnClick.AddListener(myScript.NextGame);
+                        //mobileSpace.SetActive(true);
                     }
                 }
                 else

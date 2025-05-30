@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-
+//using Unity.InputSystem;
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     public float Horizontal { get { return (snapX) ? SnapFloat(input.x, AxisOptions.Horizontal) : input.x; } }
@@ -55,6 +55,18 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchorMax = center;
         handle.pivot = center;
         handle.anchoredPosition = Vector2.zero;
+    }
+
+    public virtual void Update() {
+        // If no pointers down
+        // find pointer
+        
+
+        if (Input.touchCount == 0)
+        {
+            // Reset input
+            OnPointerUp(null);
+        }
     }
 
     public virtual void OnPointerDown(PointerEventData eventData)

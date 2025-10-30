@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         cameraTransform = Camera.main.transform;
 
-
         cameraTransform.localRotation = new Quaternion(0,0,0,0);
 
         if (!DeviceType.IsMobileBrowser()) {
@@ -59,7 +58,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move = transform.right * x + transform.forward * z;
         characterController.Move(move * speed * Time.deltaTime);
 
-        // �������ӽ�
         float mouseX;
         float mouseY;
 
